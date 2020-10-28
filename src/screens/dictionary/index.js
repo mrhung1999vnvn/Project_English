@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { View, Text,TouchableWithoutFeedback,KeyboardAvoidingView, Keyboard } from "react-native";
+import { View, Text,TouchableWithoutFeedback,KeyboardAvoidingView, Keyboard, Dimensions } from "react-native";
 import { Container, Title, TextInputRN, ButtonIcon } from "../../common/components";
 import Icon from 'react-native-vector-icons/AntDesign';
 import { Item } from "./item";
 import { FlatList } from "react-native-gesture-handler";
+import { DICTIONARY_1 } from "../../../dictionary.json";
 
 export default function Dictionary() {
     const [state, set_State] = useState({
         search: '',
     });
+
 
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -27,9 +29,17 @@ export default function Dictionary() {
                         </ButtonIcon>}
                     />
                     <FlatList
+                        disableVirtualization={true}
+                        legacyImplementation={true}
+                        removeClippedSubviews={true}
+                        windowSize={Dimensions.get('window').width}
+                        maxToRenderPerBatch={10}
+                        initialNumToRender={10}
+                        refreshing={true}
+                        onEndReachedThreshold={.7}
                         keyExtractor={(item)=>item.id}
-                        data={DATA}
-                        renderItem={(item)=><Item word={item.item.word}/>}
+                        data={Object.getOwnPropertyNames(DICTIONARY_1).splice(0,200)}
+                        renderItem={(item)=><Item word={item.item}/>}
                     />
                 </Container>
             </KeyboardAvoidingView>

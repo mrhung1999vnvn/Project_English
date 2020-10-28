@@ -21,13 +21,15 @@
     "react-native": "0.63.3",
     "react-native-fbsdk": "^2.0.0",
     "react-native-gesture-handler": "^1.8.0",
+    "react-native-push-notification": "^6.1.2",
     "react-native-reanimated": "^1.13.1",
     "react-native-safe-area-context": "^3.1.8",
     "react-native-screens": "^2.11.0",
     "react-native-svg": "^12.1.0",
     "react-native-tab-view": "^2.15.2",
     "react-native-vector-icons": "^7.1.0",
-    "react-sweet-progress": "^1.1.2"
+    "react-sweet-progress": "^1.1.2",
+    "realm": "^10.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.11.6",

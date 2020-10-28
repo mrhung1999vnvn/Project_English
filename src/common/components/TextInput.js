@@ -30,7 +30,7 @@ export function TextInputRN(props) {
                 secureTextEntry={props.secureTextEntry}
                 value={props.value}
                 onChangeText={props.onChangeText}
-                style={{ flex: 1, height: 40, marginHorizontal: 8,color:'#000',fontSize:20 }}
+                style={{ flex: 1, height: 60, marginHorizontal: 8,color:'#000',fontSize:20 }}
                 keyboardType={props.keyboardType}
                 editable={props.editable}
             />

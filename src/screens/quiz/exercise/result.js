@@ -3,11 +3,15 @@ import { Image,View,ToastAndroid,BackHandler } from "react-native";
 import { Container, Title,TextRN, ButtonRN } from "../../../common/components";
 
 import { NavigationContainer, useFocusEffect } from '@react-navigation/native';
+import { HistoryContext } from "../../../common/context/historyContext";
+import { AppContext } from "../../../common/context/appContext";
 
 
 export default function Result({navigation,route}) {
     let backCount = 0;
-    console.log(route.params.anw);
+    const answers = route.params.anw;
+    const hContext = React.useContext(AppContext)
+
     useFocusEffect(
         React.useCallback(() => {
             const onBackPress = () => {

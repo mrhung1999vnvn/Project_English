@@ -19,8 +19,9 @@ export function Card(props) {
         <TouchableOpacity 
         onPress={props.onPress}
         style={[{
+            backgroundColor:'#fff',
             padding:10,
-            borderRadius:20,
+            borderRadius:12,
             marginVertical:5,
             justifyContent:'center',
             alignItems:'center'

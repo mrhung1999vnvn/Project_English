@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { BackHandler, ToastAndroid, TouchableOpacity, View, Animated, Dimensions } from "react-native";
+import { BackHandler, ToastAndroid, TouchableOpacity, View, Animated, Dimensions,Image } from "react-native";
 import { NavigationContainer, useFocusEffect } from '@react-navigation/native';
-import { createStackNavigator, CardStyleInterpolators, TransitionSpecs, TransitionPresets, bo } from '@react-navigation/stack';
+import { createStackNavigator, CardStyleInterpolators, TransitionSpecs, TransitionPresets } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
@@ -14,7 +14,11 @@ import InfoScreen from "../screens/info";
 import QuizScreen from "../screens/quiz";
 import ExerciseScreen from "../screens/quiz/exercise";
 import ResultExeciseScreen from "../screens/quiz/exercise/result";
+import NewWordScreen from "../screens/home/newWord";
 
+
+//Layout
+import { ResultAfterNewWords } from "../screens/home/newWord/result";
 
 import Icon from 'react-native-vector-icons/AntDesign';
 import { TenLua } from "../assets/image/svg/tenlua";
@@ -54,6 +58,18 @@ export function RootStackNavigator() {
                         headerShown:false
                     }}
                     component={ResultExeciseScreen} name="Result"
+                />
+                <StackScreen.Screen
+                    options={{
+                        headerShown:false
+                    }}
+                    component={NewWordScreen} name="NewWord"
+                />
+                <StackScreen.Screen
+                    options={{
+                        headerShown:false
+                    }}
+                    component={ResultAfterNewWords} name="ResultAfterNewWords"
                 />
                 <StackScreen.Screen options={{
                     headerShown: false,
@@ -107,6 +123,7 @@ export function BottomTab() {
         return (
             <View style={{backgroundColor:props.focus?'#0A4267':'#18669B',padding:5,borderRadius:50}}>
                 <TenLua />
+                {/* <Image source={require('../assets/image/rocketship-2.gif')} style={{width:60,height:60}} /> */}
             </View>
         );
     }

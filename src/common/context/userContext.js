@@ -2,12 +2,11 @@ import React, { useState } from "react";
 
 
 export const UserContext = React.createContext();
-
 export function UserProvider(props) {
     const initUser = {
         accountId:'',
         name:'',
-        avatar:'',
+        avatar:' ',
         phone:'',
         email:'',
         gender:'',
@@ -15,7 +14,7 @@ export function UserProvider(props) {
     };
     
     const [userData,set_userData]=useState(initUser);
-
+    
     const logout = () =>{
         set_userData((oldStates)=>({...oldStates,...initUser}));
     }
