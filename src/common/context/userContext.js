@@ -1,35 +1,34 @@
-import React, { useState } from "react";
-
+import React, {useState} from 'react';
+import {setUser} from '../db/user';
 
 export const UserContext = React.createContext();
 export function UserProvider(props) {
-    const initUser = {
-        accountId:'',
-        name:'',
-        avatar:' ',
-        phone:'',
-        email:'',
-        gender:'',
-        birthday:'',
-    };
-    
-    const [userData,set_userData]=useState(initUser);
-    
-    const logout = () =>{
-        set_userData((oldStates)=>({...oldStates,...initUser}));
-    }
+  const initUser = {
+    accountId: '',
+    name: '',
+    avatar: ' ',
+    phone: '',
+    email: '',
+    gender: '',
+    birthday: '',
+  };
 
-    const store ={
-        data:userData,
-        setData:(input)=>{
-            set_userData((oldStates)=>({...oldStates,...input}));
-        },
-        logout:()=>logout()
-    }
+  const [userData, set_userData] = useState(initUser);
 
-    return(
-        <UserContext.Provider value={store}>
-            {props.children}
-        </UserContext.Provider>
-    )
+  const logout = () => {
+    set_userData((oldStates) => ({...oldStates, ...initUser}));
+  };
+
+  const store = {
+    data: userData,
+    setData: (input) => {
+      set_userData((oldStates) => ({...oldStates, ...input}));
+      setUser(input);
+    },
+    logout: () => logout(),
+  };
+
+  return (
+    <UserContext.Provider value={store}>{props.children}</UserContext.Provider>
+  );
 }
