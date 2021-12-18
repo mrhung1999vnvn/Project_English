@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {setUser} from '../db/user';
+import {setUser, clearAll} from '../db/user';
 
 export const UserContext = React.createContext();
 export function UserProvider(props) {
@@ -16,7 +16,8 @@ export function UserProvider(props) {
   const [userData, set_userData] = useState(initUser);
 
   const logout = () => {
-    set_userData((oldStates) => ({...oldStates, ...initUser}));
+    set_userData(initUser);
+    clearAll();
   };
 
   const store = {

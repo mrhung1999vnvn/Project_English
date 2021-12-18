@@ -10,7 +10,6 @@ import {UserContext} from '../../common/context/userContext';
 export default function Splash() {
   const uNavigation = useNavigation();
   const uContext = React.useContext(UserContext);
-  
   return (
     <Container>
       <StatusBar

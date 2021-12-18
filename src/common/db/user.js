@@ -24,9 +24,8 @@ export function setUser(objInput) {
 
 export function getUser() {
   try {
-    let objDictionary = realm.objects('Account').length;
-    console.log('Log App ~ file: user.js ~ line 28 ~ getUser ~ objDictionary', objDictionary)
-    return objDictionary;
+    let objDictionary = realm.objects('Account');
+    return objDictionary[0];
   } catch (error) {
     return {status: false, message: error};
   }

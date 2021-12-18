@@ -107,16 +107,20 @@ export default function Login({navigation}) {
       .catch((err) => console.log(err));
   };
 
-  const _loginWithApple = async () => {
-    Alert.alert('Thông báo', 'Chức năng chưa phát triển !');
-  };
   useEffect(() => {
-    const existAccount = getUser();
-    console.log(
-      'Log App ~ file: index.js ~ line 16 ~ useLayoutEffect ~ existAccount',
-      existAccount,
-    );
-    if (existAccount) {
+    const account = getUser();
+    if (account) {
+      console.log(
+        'Log App ~ file: index.js ~ line 113 ~ useEffect ~ existAccount',
+        account,
+      );
+      const newObject = {
+        accountId: account.ID,
+        name: account.name,
+        avatar: account.avatar,
+        email: account.email,
+      };
+      uContext.setData(newObject);
       navigation.replace('Tab');
     }
 
@@ -193,7 +197,6 @@ export default function Login({navigation}) {
               style={[style.button, style.buttonFacebook]}>
               Login with Facebook
             </ButtonRN>
-            {/* <ButtonRN left={<Icon name="apple1" size={30} color="#fff" />} onPress={_loginWithApple} style={[style.button, style.buttonApple]}>Login with Apple ID</ButtonRN> */}
           </Animated.View>
         </Container>
       </KeyboardAvoidingView>
