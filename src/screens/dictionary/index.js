@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {
   View,
-  Text,
   TouchableWithoutFeedback,
   KeyboardAvoidingView,
   Keyboard,
@@ -14,7 +13,7 @@ import {
   ButtonIcon,
 } from '../../common/components';
 import Icon from 'react-native-vector-icons/AntDesign';
-import {Item} from './item';
+import {Item} from './layout/ItemDictionary';
 import {FlatList} from 'react-native-gesture-handler';
 import {DICTIONARY_1} from '../../../dictionary.json';
 
@@ -68,150 +67,3 @@ export default function Dictionary() {
     </TouchableWithoutFeedback>
   );
 }
-
-const DATA = [
-  {
-    id: '#1',
-    word: 'Apple',
-    type: 'danh từ',
-    mean: 'Quả táo, trái táo',
-    examples: [
-      "Adam ' apples",
-      'Apple of discord',
-      'Apple of the eye',
-      'The apple of Sodom: Dead Sea apple ',
-    ],
-  },
-  {
-    id: '#1',
-    word: 'Apple',
-    type: 'danh từ',
-    mean: 'Quả táo, trái táo',
-    examples: [
-      "Adam ' apples",
-      'Apple of discord',
-      'Apple of the eye',
-      'The apple of Sodom: Dead Sea apple ',
-    ],
-  },
-  {
-    id: '#1',
-    word: 'Apple',
-    type: 'danh từ',
-    mean: 'Quả táo, trái táo',
-    examples: [
-      "Adam ' apples",
-      'Apple of discord',
-      'Apple of the eye',
-      'The apple of Sodom: Dead Sea apple ',
-    ],
-  },
-  {
-    id: '#1',
-    word: 'Apple',
-    type: 'danh từ',
-    mean: 'Quả táo, trái táo',
-    examples: [
-      "Adam ' apples",
-      'Apple of discord',
-      'Apple of the eye',
-      'The apple of Sodom: Dead Sea apple ',
-    ],
-  },
-  {
-    id: '#1',
-    word: 'Apple',
-    type: 'danh từ',
-    mean: 'Quả táo, trái táo',
-    examples: [
-      "Adam ' apples",
-      'Apple of discord',
-      'Apple of the eye',
-      'The apple of Sodom: Dead Sea apple ',
-    ],
-  },
-  {
-    id: '#1',
-    word: 'Apple',
-    type: 'danh từ',
-    mean: 'Quả táo, trái táo',
-    examples: [
-      "Adam ' apples",
-      'Apple of discord',
-      'Apple of the eye',
-      'The apple of Sodom: Dead Sea apple ',
-    ],
-  },
-  {
-    id: '#1',
-    word: 'Apple',
-    type: 'danh từ',
-    mean: 'Quả táo, trái táo',
-    examples: [
-      "Adam ' apples",
-      'Apple of discord',
-      'Apple of the eye',
-      'The apple of Sodom: Dead Sea apple ',
-    ],
-  },
-  {
-    id: '#1',
-    word: 'Apple',
-    type: 'danh từ',
-    mean: 'Quả táo, trái táo',
-    examples: [
-      "Adam ' apples",
-      'Apple of discord',
-      'Apple of the eye',
-      'The apple of Sodom: Dead Sea apple ',
-    ],
-  },
-  {
-    id: '#1',
-    word: 'Apple',
-    type: 'danh từ',
-    mean: 'Quả táo, trái táo',
-    examples: [
-      "Adam ' apples",
-      'Apple of discord',
-      'Apple of the eye',
-      'The apple of Sodom: Dead Sea apple ',
-    ],
-  },
-  {
-    id: '#1',
-    word: 'Apple',
-    type: 'danh từ',
-    mean: 'Quả táo, trái táo',
-    examples: [
-      "Adam ' apples",
-      'Apple of discord',
-      'Apple of the eye',
-      'The apple of Sodom: Dead Sea apple ',
-    ],
-  },
-  {
-    id: '#1',
-    word: 'Apple',
-    type: 'danh từ',
-    mean: 'Quả táo, trái táo',
-    examples: [
-      "Adam ' apples",
-      'Apple of discord',
-      'Apple of the eye',
-      'The apple of Sodom: Dead Sea apple ',
-    ],
-  },
-  {
-    id: '#1',
-    word: 'Apple',
-    type: 'danh từ',
-    mean: 'Quả táo, trái táo',
-    examples: [
-      "Adam ' apples",
-      'Apple of discord',
-      'Apple of the eye',
-      'The apple of Sodom: Dead Sea apple ',
-    ],
-  },
-];

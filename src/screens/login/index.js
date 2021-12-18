@@ -5,10 +5,8 @@ import {
   TouchableWithoutFeedback,
   Image,
   View,
-  StyleSheet,
   Animated,
   Dimensions,
-  Alert,
 } from 'react-native';
 import {
   LoginManager,
@@ -21,6 +19,7 @@ import {TextRN, Container, Title, ButtonRN} from '../../common/components';
 
 import {UserContext} from '../../common/context/userContext';
 import {getUser} from '../../common/db/user';
+import style from './index.style';
 
 export default function Login({navigation}) {
   const {height} = Dimensions.get('screen');
@@ -110,10 +109,6 @@ export default function Login({navigation}) {
   useEffect(() => {
     const account = getUser();
     if (account) {
-      console.log(
-        'Log App ~ file: index.js ~ line 113 ~ useEffect ~ existAccount',
-        account,
-      );
       const newObject = {
         accountId: account.ID,
         name: account.name,
@@ -125,7 +120,7 @@ export default function Login({navigation}) {
     }
 
     return () => {};
-  }, []);
+  }, [navigation, uContext]);
 
   return (
     <TouchableWithoutFeedback>
@@ -137,18 +132,7 @@ export default function Login({navigation}) {
           barStyle={'dark-content'}
         />
         {state.loading && (
-          <View
-            style={{
-              position: 'absolute',
-              justifyContent: 'center',
-              alignItems: 'center',
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              backgroundColor: 'rgba(255,255,255,.9)',
-              zIndex: 999,
-            }}>
+          <View style={style.loadingContainer}>
             <Image
               source={require('../../assets/image/ball-loading.gif')}
               resizeMethod={'resize'}
@@ -203,47 +187,3 @@ export default function Login({navigation}) {
     </TouchableWithoutFeedback>
   );
 }
-
-const style = StyleSheet.create({
-  container: {
-    flex: 0.5,
-    backgroundColor: '#FFECC7',
-    paddingVertical: 20,
-    paddingHorizontal: 30,
-    alignItems: 'flex-start',
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-    elevation: 2,
-  },
-  container2: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    backgroundColor: '#FFECC7',
-    paddingVertical: 20,
-    paddingHorizontal: 30,
-    alignItems: 'flex-start',
-    borderTopLeftRadius: 40,
-    borderTopRightRadius: 40,
-    elevation: 2,
-  },
-  text: {
-    color: 'gray',
-    marginBottom: 30,
-  },
-  button: {
-    width: '90%',
-    justifyContent: 'center',
-    marginTop: 10,
-  },
-  buttonFacebook: {
-    backgroundColor: '#1976D2',
-  },
-  buttonGoogle: {
-    backgroundColor: '#C94130',
-  },
-  buttonApple: {
-    backgroundColor: '#000',
-  },
-});
